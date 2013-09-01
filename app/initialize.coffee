@@ -1,4 +1,5 @@
-window.App = require 'app'
+window.TodoApp = require 'app'
+TodoApp.ApplicationAdapter = DS.FixtureAdapter.extend()
 
 #//////////////////////////////////
 #// Templates
@@ -6,6 +7,7 @@ window.App = require 'app'
 
 require 'templates/application'
 require 'templates/index'
+require 'templates/todos'
 require 'templates/about'
 require 'templates/_well'
 
@@ -14,12 +16,14 @@ require 'templates/_well'
 #// Models
 #//////////////////////////////////
 
+require 'models/todo'
 
 
 #/////////////////////////////////
 #// Controllers
 #/////////////////////////////////
 
+require 'controllers/todos_controller'
 
 
 #/////////////////////////////////
@@ -32,23 +36,25 @@ require 'templates/_well'
 #// Routes
 #/////////////////////////////////
 
+require 'routes/todo'
 
 
 #/////////////////////////////////
 #// Store
 #/////////////////////////////////
 
-# App.Store = DS.Store.extend
-#   revision: 11
+require 'models/store'
+
 
 #/////////////////////////////////
 #// Router
 #/////////////////////////////////
 
-App.Router.reopen(
+TodoApp.Router.reopen(
   location: 'history'
 )
 
-App.Router.map ->
-  @route "about", path: "/about"
-  @route "index", path: "/"
+TodoApp.Router.map ->
+  @resource "about", path: "/about"
+  @resource "index", path: "/"
+  @resource "todos", path: "/todos"

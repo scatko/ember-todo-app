@@ -7,6 +7,9 @@
         linkTo "index" tagName="li"
           a href="{{view.href}}"
             | Home
+        linkTo "todos" tagName="li"
+          a href="{{view.href}}"
+            | Todos
         linkTo "about" tagName="li"
           a href="{{view.href}}"
             | About
