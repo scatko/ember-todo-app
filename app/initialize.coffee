@@ -24,6 +24,7 @@ require 'models/todo'
 #/////////////////////////////////
 
 require 'controllers/todos_controller'
+require 'controllers/todo_controller'
 
 
 #/////////////////////////////////
